@@ -25,7 +25,6 @@ int main(int argc, char *argv[]) {
     int nThreads = GetThreadCount( argc, argv );
     omp_set_num_threads( nThreads );
     TimeSpan ts; 
-    //#pragma omp parallel for shared(N,h),private(i,x),reduction(+:sum)
     double sum = 0.0;
     #pragma omp parallel for shared(N,h),reduction(+:sum)
     for ( int i = 0; i <= N; ++ i )
